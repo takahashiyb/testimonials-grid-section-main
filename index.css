@@ -113,6 +113,12 @@ section div div {
   row-gap: var(--spacing1);
 }
 
+.testimonial-card-container-ender {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing5);
+}
+
 #user-testimonial1 {
   background-color: var(--purple500);
   color: var(--white);
@@ -205,15 +211,13 @@ section div div {
   .testimonial-card-container {
     flex-wrap: wrap;
     flex-direction: row;
-    width: 647px;
   }
 
   section {
     flex: 1 1 250px;
   }
 
-  section:first-child,
-  section:last-child {
+  section:first-child {
     flex: 0 0 100%;
   }
 
@@ -224,44 +228,33 @@ section div div {
   }
 }
 
-@media (min-width: 1073px) {
+@media (min-width: 947px) {
+  .testimonial-card-container-ender {
+    display: grid;
+    grid-template-columns: auto 280px;
+  }
+
+  .testimonial-card-container-ender div:last-child section {
+    height: 100%;
+  }
+
   .testimonial-card-container {
-    width: auto;
-    display: flex;
-    align-content: flex-start;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "a a b"
+      "c d d";
   }
-
-  section {
-    flex-grow: 0;
-    flex-shrink: 3;
-    flex-basis: minmax(288px, 540px);
-    order: 2;
-    height: 270px;
+  .testimonial-card-container section:nth-child(1) {
+    grid-area: a;
   }
-
-  section:first-child {
-    flex: 0 1 540px;
-    order: -1;
+  .testimonial-card-container section:nth-child(2) {
+    grid-area: b;
   }
-
-  section:nth-child(2) {
-    order: 0;
+  .testimonial-card-container section:nth-child(3) {
+    grid-area: c;
   }
-
-  section:nth-child(4) {
-    flex-basis: 540px;
-  }
-
-  section:nth-child(3),
-  section:nth-child(4) {
-    transform: translate(0, -302px);
-  }
-
-  section:last-child {
-    flex: 1 0 0;
-    height: 582px;
-    /* align-self: flex-end; */
-    order: 1;
+  .testimonial-card-container section:nth-child(4) {
+    grid-area: d;
   }
 }
