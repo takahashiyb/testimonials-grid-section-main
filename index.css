@@ -205,6 +205,7 @@ section div div {
   .testimonial-card-container {
     flex-wrap: wrap;
     flex-direction: row;
+    width: 647px;
   }
 
   section {
@@ -223,5 +224,44 @@ section div div {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1073px) {
+  .testimonial-card-container {
+    width: auto;
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+
+  section {
+    flex-grow: 0;
+    flex-shrink: 3;
+    flex-basis: minmax(288px, 540px);
+    order: 2;
+    height: 270px;
+  }
+
+  section:first-child {
+    flex: 0 1 540px;
+    order: -1;
+  }
+
+  section:nth-child(2) {
+    order: 0;
+  }
+
+  section:nth-child(4) {
+    flex-basis: 540px;
+  }
+
+  section:nth-child(3),
+  section:nth-child(4) {
+    transform: translate(0, -302px);
+  }
+
+  section:last-child {
+    flex: 1 0 0;
+    height: 582px;
+    /* align-self: flex-end; */
+    order: 1;
+  }
 }
